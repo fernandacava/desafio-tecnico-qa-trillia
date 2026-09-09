@@ -107,4 +107,4 @@ Pendente de definição do PO: tipos rejeitados, mensagem, processamento parcial
 | BOOK-008 | Acentuação e caracteres especiais | Pendente regra de matching |
 | BOOK-009 | Volume elevado | Pendente limite |
 
-Não criei automação desta frente. Automatizar agora seria tesar uma regra que eu mesma inventei.
+Não criei automação desta frente. Automatizar agora seria testar uma regra que eu mesma inventei.
