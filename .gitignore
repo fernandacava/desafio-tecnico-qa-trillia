@@ -1,0 +1,10 @@
+results/
+*.pyc
+__pycache__/
+.idea/
+.vscode/
+*.log
+node_modules/
+browser/
+playwright-log.txt
+.env
