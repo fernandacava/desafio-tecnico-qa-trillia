@@ -47,6 +47,70 @@ Não considero suficiente o 200 do PUT. Quero o dado novo no GET.
 
 `API-E2E`: CREATE → GET → UPDATE → GET → DELETE → GET.
 
+## Exemplos de requisições cURL
+
+Os exemplos abaixo representam as principais operações exercitadas pela suíte. Na automação, os dados de cadastro são gerados dinamicamente para evitar colisões no ambiente público.
+
+### Criar usuário
+
+```bash
+curl --request POST \
+  --url https://serverest.dev/usuarios \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "nome": "Fernanda Rodrigues",
+    "email": "qa.trillia.exemplo@teste.com",
+    "password": "teste123",
+    "administrador": "false"
+  }'
+```
+
+### Consultar usuários
+
+```bash
+curl --request GET \
+  --url https://serverest.dev/usuarios
+```
+
+### Consultar usuário por ID
+
+```bash
+curl --request GET \
+  --url https://serverest.dev/usuarios/{_id}
+```
+
+### Alterar usuário
+
+```bash
+curl --request PUT \
+  --url https://serverest.dev/usuarios/{_id} \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "nome": "Fernanda QA Atualizada",
+    "email": "qa.trillia.atualizada@teste.com",
+    "password": "teste123",
+    "administrador": "false"
+  }'
+```
+
+### Excluir usuário
+
+```bash
+curl --request DELETE \
+  --url https://serverest.dev/usuarios/{_id}
+```
+
+### Exemplo negativo — payload vazio
+
+```bash
+curl --request POST \
+  --url https://serverest.dev/usuarios \
+  --header 'Content-Type: application/json' \
+  --data '{}'
+```
+
+> Observação: `{_id}` representa o identificador retornado pela API após a criação do usuário. Os scripts Robot Framework utilizam IDs e e-mails gerados/obtidos durante a própria execução.
+
 ## O que eu não automatizei de propósito
 
 - Excluir usuário com carrinho: exige montar produto, login admin e carrinho. Sai do recorte de usuários e inflaria a prova.
